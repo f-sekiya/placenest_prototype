@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Simplified design preview route: /design/:id where id is candidate1|candidate2|candidate3
+  get 'design/:id', to: 'mockups#show', constraints: { id: /candidate[1-3]/ }, as: :design_candidate
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  # Set root to the design preview for quick confirmation (defaults to candidate1)
+  root to: 'mockups#show', defaults: { id: 'candidate1' }
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Other application routes can follow here
 end

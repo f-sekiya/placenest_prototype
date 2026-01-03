@@ -1,0 +1,5 @@
+Rails.application.routes.draw do
+  get 'design/candidate1', to: 'mockups#candidate1'
+  get 'design/candidate2', to: 'mockups#candidate2'
+  get 'design/candidate3', to: 'mockups#candidate3'
+end
